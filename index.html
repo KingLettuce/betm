@@ -1018,45 +1018,44 @@ border-radius: 0 !important;
                 <i class="fa-solid fa-download"></i>
                 <p>Guardar</p>
             </div>
-            <div id="flo-btn-share" class="circle-button" aria-label="Compartir" title="Compartir">
+            <a href="#share-section" id="flo-btn-share" class="circle-button" aria-label="Compartir" title="Compartir">
                 <i class="fa-solid fa-share-nodes"></i>
                 <p aria-label="Cantidad de compartidos">10</p>
-            </div>
-        </div>
-        <div id="share-section" class="share-container">
-            <div class="share-content">
-                <span class="share-close" role="button" aria-label="Cerrar">×</span>
-                <div id="qr-section">
-                    <h5>QR de la tarjeta</h5>
-                    <div id="qr-code"></div>
-                    <!-- <img src="https://www.boliviaentusmanos.com/amarillas/qr/qr_linxs.png" alt="QR para Compartir" title="QR para compartir"> -->
-                </div>
-                <div class="social-buttons">
-                    <h5>Compartir en:</h5>
-                    <div class="share-options">
-                        <div class="share-option">
-                            <a href="https://api.whatsapp.com/send?text=Comparto%20la%20tarjeta%20de%20%20http://obilain.com/sc/funery/alejandro.cortez" target="_blank" class="share-whatsapp" aria-label="Compartir en WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                            <p>WhatsApp</p>
-                        </div>
-                        <div class="share-option">
-                            <a href="https://telegram.me/share/url?url=http://obilain.com/sc/funery/alejandro.cortez&amp;text=Tarjeta digital de" target="_blank" class="share-telegram" aria-label="Compartir en Telegram" title="Telegram"><i class="fab fa-telegram share-total-icon"></i></a>
-                            <p>Telegram</p>
-                        </div>
-                        <div class="share-option">
-                            <a href="https://www.facebook.com/sharer.php?u=http://obilain.com/sc/funery/alejandro.cortez" target="_blank" class="share-facebook" aria-label="Compartir en Facebook" title="Facebook"><i class="fab fa-facebook share-total-icon"></i></a>
-                            <p>Facebook</p>
-                        </div>
-                        <div class="share-option">  
-                            <a href="mailto:?subject=Tarjeta de LinxsNAME&amp;body=Esta es la Tarjeta digital de LinxsNAME https://www.boliviaentusmanos.com/amarillas/businesscard/dr-sergio-lujan-salinas.html" target="_blank" class="share-mail" aria-label="Compartir en Correo" title="Correo"><i class="fa-solid fa-envelope"></i></a>
-                            <p>Correo</p>
-                        </div>
-                        <div class="share-option">
-                            <i class="fa-solid fa-link share-copy" aria-label="Copiar enlace en clipboard" title="Copiar en clipboard" onclick="copyClipboard()"></i>
-                            <p>Copiar link</p>
-                        </div>
-                        <div class="share-option" id="moreShare">
-                            <i class="fas fa-ellipsis-h share-more"></i>
-                            <p>Más opciones</p>
+            </a>
+            <div id="share-section" class="share-container">
+                <div class="share-content">
+                    <span class="share-close" role="button" aria-label="Cerrar">×</span>
+                    <div id="qr-section">
+                        <h5>QR de la tarjeta</h5>
+                        <div id="qr-code"></div>
+                    </div>
+                    <div class="social-buttons">
+                        <h5>Compartir en:</h5>
+                        <div class="share-options">
+                            <div class="share-option">
+                                <a href="https://api.whatsapp.com/send?text=Tarjeta%20digital%20%20http://obilain.com/sc/funery/alejandro.cortez" target="_blank" class="share-whatsapp" aria-label="Compartir en WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                <p>WhatsApp</p>
+                            </div>
+                            <div class="share-option">
+                                <a href="https://telegram.me/share/url?url=http://obilain.com/sc/funery/alejandro.cortez&amp;text=Tarjeta digital" target="_blank" class="share-telegram" aria-label="Compartir en Telegram" title="Telegram"><i class="fab fa-telegram share-total-icon"></i></a>
+                                <p>Telegram</p>
+                            </div>
+                            <div class="share-option">
+                                <a href="https://www.facebook.com/sharer.php?u=http://obilain.com/sc/funery/alejandro.cortez" target="_blank" class="share-facebook" aria-label="Compartir en Facebook" title="Facebook"><i class="fab fa-facebook share-total-icon"></i></a>
+                                <p>Facebook</p>
+                            </div>
+                            <div class="share-option">  
+                                <a href="mailto:?subject=Tarjeta de LinxsNAME&amp;body=Esta es la Tarjeta digital de LinxsNAME https://www.boliviaentusmanos.com/amarillas/businesscard/dr-sergio-lujan-salinas.html" target="_blank" class="share-mail" aria-label="Compartir en Correo" title="Correo"><i class="fa-solid fa-envelope"></i></a>
+                                <p>Correo</p>
+                            </div>
+                            <div class="share-option">
+                                <i class="fa-solid fa-link share-copy" aria-label="Copiar enlace en clipboard" title="Copiar en clipboard" onclick="copyClipboard()"></i>
+                                <p>Copiar link</p>
+                            </div>
+                            <div class="share-option" id="moreShare">
+                                <i class="fas fa-ellipsis-h share-more"></i>
+                                <p>Más opciones</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1074,6 +1073,12 @@ border-radius: 0 !important;
             gap: 10px;
             color: #333;
         }
+        @media screen and (min-width: 651px){
+            .floating-buttons:has(#share-section.share-active) {
+                right: 32px !important;
+                background: red !important;
+        }
+        }
         #flo-btn-share i {
             margin-top: 4px;
         }
@@ -1088,10 +1093,14 @@ border-radius: 0 !important;
             border-radius: 50%;
             width: 60px;
             height: 60px;
-            background-color: #fff;
-            border: 1px solid #d5d5d5;
-            box-shadow: 0 0 14px rgb(42 42 42 / 21%);
+            background-color: #db0909;
+            box-shadow: 0 0 14px rgb(42 42 42 / 32%);
+            color: #fff !important;
             cursor: pointer;
+        }
+
+        .circle-button p{
+            color: #fff !important;
         }
 
         .floating-buttons i{
@@ -1252,6 +1261,11 @@ border-radius: 0 !important;
                 width: 100%;
                 border-radius: 7% 7% 0 0;
             }
+            .share-active .share-content {
+                /* animation: goUp 0.3s ease-out forwards;
+                https://codepen.io/MarvinLeRouge/pen/zvQWgQ
+                https://codepen.io/erdemuslu/pen/JpPLZJ */
+            }
             .share-content #qr-section {
                 display: flex;
                 width: 100%;
@@ -1260,6 +1274,14 @@ border-radius: 0 !important;
             }
             .share-content #qr-code img{
                 width: 100%; }
+            .share-close{
+                display: none;
+            }
+            }
+
+            @keyframes goUp {
+                0% {transform: translateY(100%);}
+                100% {transform: translateY(0%);}
             }
 
         .share-option:hover i, .floating-buttons .circle-button:hover i {
@@ -1353,6 +1375,7 @@ border-radius: 0 !important;
 
 
 
+
         // More share
         const moreShare = document.querySelector("#moreShare");
 
@@ -1382,7 +1405,43 @@ border-radius: 0 !important;
             // Copy the text inside the text field
             navigator.clipboard.writeText(tempInput.value);
         }
+
+    // Delizar contenedor
+    const shareSectionBlock = document.querySelector('#share-section .share-content');
+    let startY;
+
+    // Evento cuando se empieza a tocar la pantalla
+    shareSectionBlock.addEventListener('touchstart', function (e) {
+        startY = e.touches[0].clientY;
     });
+    
+
+    // Evento cuando se desliza el dedo en la pantalla
+    shareSectionBlock.addEventListener('touchmove', function (e) {
+        const currentY = e.touches[0].clientY;
+        const diffY = currentY - startY;
+
+        // Si el deslizamiento es hacia abajo y supera los 50px
+        if (diffY > 0) { // Solo mover si el desplazamiento es hacia abajo
+            shareSectionBlock.style.transform = `translateY(${diffY}px)`;
+        }
+
+    });
+    shareSectionBlock.addEventListener('touchend', function (e) {
+        const currentY = e.changedTouches[0].clientY;
+        const diffY = currentY - startY;
+
+        if (diffY > 50) {
+            shareSectionBlock.style.transform = 'translateY(0)'; 
+            shareClose.click(); 
+        }
+        shareSectionBlock.style.transform = 'translateY(0)'; // Resetear la posición después del deslizamiento
+    });
+});
+
+
+
+
 </script>
 
 
