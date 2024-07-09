@@ -340,7 +340,7 @@ $colores="#ffff";
         <meta property="og:url" content="https://www.boliviaentusmanos.com/amarillas/businesscard/<?=$sucur1[0]["paginabusiness"]?>.html">
     <?php  } ?>
     <meta property="og:title" content="<?=trim($nombresn[0])?> | boliviaentusmanos">
-    <meta property="og:description" content="<?=$nombre?>. <?=$actividadesHTML ?>">
+    <meta property="og:description" content="<?=$actividadesHTML ?>">
     <meta property="og:image" content="<?php echo isset($logo) ? base_url()."/amarillas/blogos/".$logo : base_url()."/amarillas/imagenes/fb-icon-amarillas.jpg"?>">
     <meta property="fb:pages" content="403676053023936">
     <meta property="fb:app_id" content="966242223397117">
