@@ -76,7 +76,6 @@ if($paginaBusiness){
         if($rubros) $rubross = explode("-",$rubros);
         $tsuscripcion	= $empresa["tiposuscripcion"];
         $paginabus		= $empresa["paginabusiness"];
-        $especialidad_prof = $empresa["especialidad_prof"];
         $comentario		= $empresa["comentario"];
         $keywords		= $empresa["keywords"];
         $rubroasoc     = $empresa["rubro_asoc"];
@@ -119,7 +118,7 @@ if($paginaBusiness){
         if(isset($horarioEmpresa)){
             // Check if the id is numeric
             if (is_numeric($horarioEmpresa) && intval($horarioEmpresa) == $horarioEmpresa) {
-                $horarioEmpresa = $horarioModel->getHorarioEmpresaTry($horarioEmpresa);
+                $horarioEmpresa = $horarioModel->getHorarioEmpresa($horarioEmpresa);
                 if (count($horarioEmpresa) > 0) {
                     $dias_horario = $horarioEmpresa[0]["dias_horario"];
                     $mas_horario = $horarioEmpresa[0]["mas_horario"];
@@ -164,9 +163,9 @@ if($paginaBusiness){
         if($o_serv) $otros_servicios = explode("|", $o_serv);
         $chat  = $empresa["chat"];
         $tienda =$empresa["tienda"];
-        $tienda_link=$empresa["tienda_link"];
+        $tienda_link=$empresa["tienda_link"];       
         $acerca_de_mi=$empresa["acerca_de_mi"];
-        $especialidad_profesional=$empresa["especialidad_profesional"];
+        $especialidad_profesional=$empresa["especialidad_prof"];
         $institucion=$empresa["institucion"];
         $fondo_profesional=$empresa["fondo_profesional"];
         $personal=$empresa["personal"];
@@ -857,7 +856,6 @@ echo "#eeeeee";} ?>
                             <h1 itemprop="name"><?=str_ireplace(' *', ' <i class="fas fa-star" ></i>',$nombre)?></h1>
                             <div class="info_profesional">
                                 <p><?=$especialidad_profesional?></p>
-                                <p><?=$especialidad_prof?></p>
                                 <p class="institucion"><?=$institucion?></p>
                             </div>
                         </div>
@@ -2063,7 +2061,7 @@ echo "#eeeeee";} ?>
                                                             <div class="cont_der">
                                                                 <div class="der">
                                                                     <p><?=ucwords(mb_strtolower($row["descripcion"]))?></p>
-                                                                    <span><?=$row["especialidad_profesional"]?></span>
+                                                                    <span><?=$row["especialidad_prof"]?></span>
                                                                 </div>
                                                             </div>
                                                         </a>
