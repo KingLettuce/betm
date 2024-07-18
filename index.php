@@ -76,6 +76,7 @@ if($paginaBusiness){
         if($rubros) $rubross = explode("-",$rubros);
         $tsuscripcion	= $empresa["tiposuscripcion"];
         $paginabus		= $empresa["paginabusiness"];
+        $especialidad_prof = $empresa["especialidad_prof"];
         $comentario		= $empresa["comentario"];
         $keywords		= $empresa["keywords"];
         $rubroasoc     = $empresa["rubro_asoc"];
@@ -113,21 +114,22 @@ if($paginaBusiness){
         $productos 		= $empresa["servicios"];
         $especialidades = $empresa["especialidades"];
         $certificados   = $empresa["certificados"];
-        $horarioEmpresa = $horarioModel->getHorarioEmpresa($codigoempresa);
-        if (count($horarioEmpresa) > 0) {
-            $dias_horario = $horarioEmpresa[0]["dias_horario"];
-            $mas_horario = $horarioEmpresa[0]["mas_horario"];
-            $checkin = $horarioEmpresa[0]["checkin"];
-        } else {
-            $horarioEmpresa = $horarioModel->getHorarioEmpresa($empresa["bempresa"]);
-            if(count($horarioEmpresa) > 0){
-                $dias_horario = $horarioEmpresa[0]["dias_horario"];
-                $mas_horario = $horarioEmpresa[0]["mas_horario"];
-                $checkin = $horarioEmpresa[0]["checkin"];
-            }else{
+
+        $horarioEmpresa = $empresa["horarios"];
+        if(isset($horarioEmpresa)){
+            // Check if the id is numeric
+            if (is_numeric($horarioEmpresa) && intval($horarioEmpresa) == $horarioEmpresa) {
+                $horarioEmpresa = $horarioModel->getHorarioEmpresaTry($horarioEmpresa);
+                if (count($horarioEmpresa) > 0) {
+                    $dias_horario = $horarioEmpresa[0]["dias_horario"];
+                    $mas_horario = $horarioEmpresa[0]["mas_horario"];
+                    $checkin  = $horarioEmpresa[0]["checkin"];
+                }
+            }else {
                 $horarios = $empresa["horarios"];
             }
         }
+
         $pagos 			= $empresa["pagos"];
         $fotos 			= $empresa["fotografias"];
         if(isset($fotos)){
@@ -855,6 +857,7 @@ echo "#eeeeee";} ?>
                             <h1 itemprop="name"><?=str_ireplace(' *', ' <i class="fas fa-star" ></i>',$nombre)?></h1>
                             <div class="info_profesional">
                                 <p><?=$especialidad_profesional?></p>
+                                <p><?=$especialidad_prof?></p>
                                 <p class="institucion"><?=$institucion?></p>
                             </div>
                         </div>
