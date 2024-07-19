@@ -163,7 +163,7 @@ if($paginaBusiness){
         if($o_serv) $otros_servicios = explode("|", $o_serv);
         $chat  = $empresa["chat"];
         $tienda =$empresa["tienda"];
-        $tienda_link=$empresa["tienda_link"];       
+        $tienda_link=$empresa["tienda_link"];
         $acerca_de_mi=$empresa["acerca_de_mi"];
         $especialidad_profesional=$empresa["especialidad_prof"];
         $institucion=$empresa["institucion"];
@@ -2045,12 +2045,13 @@ echo "#eeeeee";} ?>
                                 <div class="panel">
                                     <div class="content_team">
                                         <ul>
-                                            <?php
-                                            $npersonal=explode(';',$personal);
-                                         for ($i=0;$i<count($npersonal);$i++){
-                                             $equipo = $empresaDirectorio->getEmpresaBusinessDatos($npersonal[$i]);
-                                            foreach ($equipo as $row){
-                                                ?>
+                                        <?php
+                                        $npersonal=explode(';',$personal);
+                                        for ($i=0;$i<count($npersonal);$i++){
+                                            // Mostrar si el id de la empresa no es el mismo
+                                            if($npersonal[$i] != $codigoempresa){
+                                                $equipo = $empresaDirectorio->getEmpresaBusinessDatos($npersonal[$i]);
+                                                foreach ($equipo as $row){?>
                                                     <li>
                                                         <a href="https://www.boliviaentusmanos.com/amarillas/businesscard/<?=$row["paginabusiness"]?>.html">
                                                             <div class="cont_izq">
@@ -2067,8 +2068,9 @@ echo "#eeeeee";} ?>
                                                         </a>
                                                         <div class="clear"></div>
                                                     </li>
-                                                    <?php } ?>
-                                         <?php } ?>
+                                                <?php } ?>
+                                            <?php }
+                                        }?>
                                         </ul>
                                     </div>
                                 </div>
